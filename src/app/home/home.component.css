@@ -1,0 +1,7 @@
+.myp{
+    color:#6050C4;
+}
+.myp:hover{
+    color:#36269B;
+    cursor: pointer;
+}

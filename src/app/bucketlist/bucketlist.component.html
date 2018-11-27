@@ -1,0 +1,28 @@
+<section class="banner-area">
+    <div class="container" style="padding-top:100px; min-height:500px; padding-bottom:60px;">
+      <div class="row">
+          <div class="col-sm-4" style="background-color:gray; min-height: 400px; color:white;padding:20px;">
+              <h4 >Welcome <span style="color:white;">{{name}}</span></h4>
+              <button (click)="addItem()" class="btn" style="margin-top:50px; width:200px;">Add Item</button>
+              <button *ngIf="loggedin" (click)="logout()" class="btn" style="margin-top:10px; width:200px;">logout</button>
+              <p style="color:yellow; margin-top:50px;">{{message}}</p>
+             </div>
+             <div class="col-sm-8">
+                <h4 *ngIf="data" style="text-align:center;">{{data.name}} Items</h4>
+                <table class="table" >
+                    <th>ITEM NAME</th><TH>DATE CREATED</TH><TH>DONE</TH><th>ACTION</th>
+                    <tbody *ngFor="let item of data.items">
+                      <tr>
+                        <td>{{item.name}}</td>
+                        <td>{{item.created_at|date}}</td>
+                        <td *ngIf="item.done=='true'" style="color:green;">{{item.done}}</td>
+                        <td *ngIf="item.done=='false'" style="color:red;">{{item.done}}</td>
+                        <td><button (click)="edititem(item.id)">Edit</button><button (click)="deleteitem(item.id)">Del</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+             </div>
+      </div>
+        
+    </div>					
+  </section>

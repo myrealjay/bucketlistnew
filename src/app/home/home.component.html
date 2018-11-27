@@ -1,0 +1,34 @@
+<section class="banner-area">
+  <div class="container" style="padding-top:100px; min-height:500px; padding-bottom:60px;">
+    <div class="row">
+      <div class="col-sm-4" style="background-color:gray; min-height: 400px; color:white;padding:20px;">
+       <h4 >Welcome <span style="color:white;">{{name}}</span></h4>
+       <button (click)="createBucket()" class="btn" style="margin-top:50px; width:200px;">Create Bucket</button>
+       <button (click)="setlimit()" class="btn" style="margin-top:10px; width:200px;">Set Limit</button>
+       <button *ngIf="loggedin" (click)="logout()" class="btn" style="margin-top:10px; width:200px;">logout</button>
+       <p style="color:yellow; margin-top:50px;">{{message}}</p>
+      </div>
+      <div class="col-sm-8">
+        <h4 style="text-align:center;">{{name}} Buckets</h4>
+          <table class="table" >
+            <th>BUCKET NAME</th><TH>DATE CREATED</TH><th>ACTION</th>
+            <tbody *ngFor="let bucket of data">
+              <tr>
+                <td><p class="myp" (click)="loadurl(bucket.id)">{{bucket.name}}</p></td>
+                <td>{{bucket.created_at|date}}</td>
+                <td><button (click)="editbucket(bucket.id)">Edit</button><button (click)="deletebucket(bucket.id)">Del</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table>
+            <tr>
+              <td><button (click)="previous(page)"><< Previous</button></td>
+              <td style="padding-left:20px;padding-right:20px;">Page {{page}} of  {{total}}</td>
+              <td><button (click)="next(page,total)">Next >></button></td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>					
+</section>

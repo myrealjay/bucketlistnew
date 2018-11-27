@@ -1,0 +1,25 @@
+<section class="banner-area">
+  <div class="container" style="padding-top:100px; min-height:500px; padding-bottom:60px;">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6" style="background-color:lightgray; padding:20px;color:black !important;">
+          <p style="color:green;">{{data}}</p>
+          <p style="color:red;">{{error}}</p>
+          <form [formGroup]="regForm" (ngSubmit)="onSubmit(regForm.value)" novalidate>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" formControlName="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+            
+            <button type="submit" [disabled]="!regForm.valid" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+    </div>
+      
+  </div>					
+</section>
