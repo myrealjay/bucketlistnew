@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RestService {
 
-  apiUrl='http://localhost:8000/api/v1';
+  apiUrl='http://dry-brook-58949.herokuapp.com/api/v1';
 
   constructor( private http:HttpClient) { }
 
@@ -20,7 +20,7 @@ export class RestService {
         password: password
       }, 
       {
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*' }
       }
       ).subscribe(data => {
         resolve(data);
